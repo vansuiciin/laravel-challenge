@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    // Return the UserResource when converting User model to JSON
+    public function toResource()
+    {
+        return new UserResource($this);
+    }
 }

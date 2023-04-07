@@ -10,6 +10,8 @@ class InternetServiceProviderController extends Controller
 {
     public function getMptInvoiceAmount(Request $request)
     {
+        return $this->getInvoiceAmount($request, $mpt);
+
         $mpt = new Mpt();
         $mpt->setMonth($request->get('month') ?: 1);
         $amount = $mpt->calculateTotalAmount();
@@ -29,4 +31,5 @@ class InternetServiceProviderController extends Controller
             'data' => $amount
         ]);
     }
+    
 }

@@ -16,7 +16,7 @@ class StaffController extends Controller
     
     public function payroll()
     {
-        $data = $this->staff->salary();
+        $data = $this->staff->calculateSalary();
     
         return response()->json([
             'data' => $data
